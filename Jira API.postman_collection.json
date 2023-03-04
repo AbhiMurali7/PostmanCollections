@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "de101b7a-182c-42fb-bc92-538304b43e6b",
+		"name": "Jira API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25430299"
+	},
+	"item": [
+		{
+			"name": "cookies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"abhiofc07\",\n    \"password\": \"Abhi7196$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/auth/1/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"auth",
+						"1",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/rest/api/2/issue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=F124E8469DDFAF677DF29E040141FD42",
+						"type": "text"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fields\": {\n        \"project\": {\n            \"key\": \"RA\"\n        },\n        \"summary\": \"Error is not returned\",\n        \"issuetype\": {\n            \"name\": \"Bug\"\n        },\n        \"description\": \"Creating of an issue using Project keys and issue type name using postman\"\n        \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/api/2/issue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/rest/api/2/issue/10001",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=F124E8469DDFAF677DF29E040141FD42",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/rest/api/2/issue/10001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/rest/api/2/issue/10002/comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=F124E8469DDFAF677DF29E040141FD42",
+						"type": "text"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Please check the bug and let me know\",\n    \"visibility\": {\n        \"type\": \"role\",\n        \"value\": \"Administrators\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/api/2/issue/10002/comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10002",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/rest/api/2/issue/10002/comment/10000",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=F124E8469DDFAF677DF29E040141FD42",
+						"type": "text"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"Could you check above bug\",\n    \"visibility\": {\n        \"type\": \"role\",\n        \"value\": \"Administrators\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/api/2/issue/10002/comment/10000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10002",
+						"comment",
+						"10000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "5924d194-9f24-48fc-b051-cc4decfa149e",
+		"name": "Authors Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25430299"
+	},
+	"item": [
+		{
+			"name": "Authors Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors Get Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ClientName",
+						"value": "Abhi",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummyjson.com/products",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "oauth generated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://apingweb.com/api/register",
+					"protocol": "https",
+					"host": [
+						"apingweb",
+						"com"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors Get Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummyjson.com/products/search?q=phone",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "phone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors Get Copy 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apingweb.com/api/auth/users",
+					"protocol": "https",
+					"host": [
+						"apingweb",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors Get Copy 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"superman5667@gmail.com\",\n    \"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apingweb.com/api/login",
+					"protocol": "https",
+					"host": [
+						"apingweb",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Keerthana\",\n    \"trips\": 150,\n    \"airline\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.instantwebtools.net/v1/passenger",
+					"protocol": "https",
+					"host": [
+						"api",
+						"instantwebtools",
+						"net"
+					],
+					"path": [
+						"v1",
+						"passenger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "outh demo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNjQzMDk3OTczYTVkYzg1YjVlZWQxZDEzYWFlOTE1ODQ3ZTUzY2RhOTIxMzgyOTRhZDY0ZTEzM2UxYWQwNDUzMmZkMTE3NjQxODAyNDk1MGQiLCJpYXQiOjE2Nzc3MjU4MzYuMzU3OTI1LCJuYmYiOjE2Nzc3MjU4MzYuMzU3OTM1LCJleHAiOjE3MDkzNDgyMzYuMzEyMjQ4LCJzdWIiOiI1NTQiLCJzY29wZXMiOltdfQ.KgECC9ZC30MZHbBvbHQ_VuOO_eIazjx0EcQZhz_3vfn1Q62cmrhrmGFNbqkxD1LDS1F5su8gsTwU2EVKD0yj3kiC269UUsC8wlcNpcPFoFM2KsaEIIONZabBgoJaMRkO_24l0iNlhRBLMH_jWlgbSX-vxoUifuTbGacQOrPHfxS-VS7e_dydLhPnBxcd_T-B6cRdMULL7PEETIJNv5QfGGtmlOzOsefPIiswpxn6KijUMWHVtnFD6MZry_qcPgsN1AWXseT8Sy4CLFh16iba9M1DYXIWISvgH46RwVpnEc6IHrSLHsNpSNesK532MOPDI2E2xMdz3Gwkd2SlhyHvVNZyDuZbHwaviJlCyGR82De7g5estuIzNarC6PC17k1jFwEWfaJ3Fmtm_wcKToPHQOFH7A25Hu2Uacn6CHLDP2FsIyztGijZHEwNhYzAcRBma_8SH4HBtgQlr13R6nCfKb81aWEaGst5p8zqyZDSQoKzk9hihLFsvJDXB9vdaRsueIQCGnw_PFNVXA0Hziu8-gcG81la8aq6ima8fGc9n66PD2k2hP-DQnCJqMriBOxBmOA2iuRytUVLTOEaAHE9YR9ci0Ok2RWdSKVs0GqpQW3W2Hk4I_Ybp98-GKoCqWtPN0GAe72ZRhcBV63ga7SpBGPllpSOxTQ3qK0lPUAMOUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apingweb.com/api/articles",
+					"protocol": "https",
+					"host": [
+						"apingweb",
+						"com"
+					],
+					"path": [
+						"api",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Books Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1791,\n  \"title\": \"Venvel Senni\",\n  \"description\": \"Historical Books\",\n  \"pageCount\": 600,\n  \"excerpt\": \"Chola\",\n  \"publishDate\": \"2023-02-11T08:22:35.405Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Books Create Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  allPersons {\n    name\n    age\n    posts {\n        title\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://api.graph.cool/simple/v1/cjrqzet3c0fc30162tgt8wzf4/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"graph",
+						"cool"
+					],
+					"path": [
+						"simple",
+						"v1",
+						"cjrqzet3c0fc30162tgt8wzf4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
