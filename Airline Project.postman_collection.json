@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "0e08a5f7-4446-4111-8e9f-818a14052cca",
+		"name": "Airline Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25430299"
+	},
+	"item": [
+		{
+			"name": "Airline Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"airlineId\",jsonData.id);",
+							"",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 750,\n        \"name\": \"Netherland Airways\",\n        \"country\": \"Netherland\",\n        \"logo\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Netherland_Airways_Logo.svg/300px-Netherland_Airways_Logo.svg.png\",\n        \"slogan\": \"Going Places Together\",\n        \"head_quaters\": \"Netherland Airways Towers, Doha, Netherland\",\n        \"website\": \"www.netherlandairways.com\",\n        \"established\": \"1993\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/airlines",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.instantwebtools.net/v1/airlines/{{airlineId}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Expected Airline Id Returned in the Response\", function () {",
+							"  pm.expect(pm.response.json().id).to.eql(parseInt(pm.collectionVariables.get(\"airlineId\")));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/airlines/{{airlineId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"airlines",
+						"{{airlineId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/v1/passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful Passenger Created\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+							"});",
+							"const jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"passengerId\",jsonData._id);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John\",\n    \"trips\": 260,\n    \"airline\": {{airlineId}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/passenger",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"passenger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/v1/passenger/{{passengerId}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful Updated whole details of passenger\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+							"});",
+							"",
+							"pm.test(\"All details should be updated for existing PassengerId\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Passenger data put successfully completed.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Deo\",\n    \"trips\": 500,\n    \"airline\": {{airlineId}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/passenger/{{passengerId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"passenger",
+						"{{passengerId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/v1/passenger/{{passengerId}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful Passenger Updated\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+							"});",
+							"",
+							"pm.test(\"Name should be updated for existing PassengerId\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Passenger data updated successfully.\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"John Doe\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/passenger/{{passengerId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"passenger",
+						"{{passengerId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/v1/airlines/{{passengerId}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Expected Passenger Id Returned in the Response\", function () {",
+							"  pm.expect(pm.response.json()._id).to.eql(pm.collectionVariables.get(\"passengerId\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/passenger/{{passengerId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"passenger",
+						"{{passengerId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/v1/passenger/{{passengerId}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Passenger should be Deleted Successfully\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Passenger data deleted successfully.\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/passenger/{{passengerId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"passenger",
+						"{{passengerId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/v1/passenger?page=0&size=10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/passenger?page=0&size=10",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"passenger"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://api.instantwebtools.net",
+			"type": "string"
+		},
+		{
+			"key": "airlineId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "passengerId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
